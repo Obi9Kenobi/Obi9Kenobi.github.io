@@ -1,4 +1,3 @@
-<!-- Stefan Rachynskyy -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,14 +26,8 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: SnapFolio
-  * Template URL: https://bootstrapmade.com/snapfolio-bootstrap-portfolio-template/
-  * Updated: Jul 21 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -284,7 +277,6 @@
             </div>
           </div>
         </div>
-
       </div>
 
     </section><!-- /Stats Section -->
@@ -395,7 +387,6 @@
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
           <!-- Left column with summary and contact -->
           <div class="col-lg-4">
@@ -405,7 +396,7 @@
               </div>
 
               <h3>Professional Summary</h3>
-              <p>Driven student.</p>
+              <p>Driven student.</p>  
 
               <h3 class="mt-4">Contact Information</h3>
               <ul class="contact-info list-unstyled">
@@ -465,9 +456,8 @@
             <!-- Experience Section -->
             <div class="resume-section" data-aos="fade-up">
               <h3><i class="bi bi-briefcase me-2"></i>Professional Experience</h3>
-
                   <small>no expirience.</small>
-
+            </div>
             <!-- Education Section -->
             <div class="resume-section" data-aos="fade-up" data-aos-delay="100">
               <h3><i class="bi bi-mortarboard me-2"></i>Education</h3>
@@ -486,10 +476,8 @@
             </div>
           </div>
         </div>
-
       </div>
-
-    </section><!-- /Resume Section -->
+    </section>  <!-- /Resume Section -->
 
     <!--                                                                              PORTFOLIO SECTION -->
     <section id="portfolio" class="portfolio section">
@@ -578,22 +566,21 @@
         <h2>Services</h2>
       </div><!-- End Section Title -->
 
-        <video width="600" controls>
-          <source src="C:\Works\University\Semester 3\Script Programming\HTML\Labworks\Lab2\SnapFolio\SnapFolio\assets\media\catvideo.mp4" type="video/mp4">
+      <!--  <video width="600" controls>
+        <source src="C:/Works/University/Semester_3/Script_Programming/HTML/Labworks/Lab2/SnapFolio/SnapFolio/assets/media/catvideo.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
 
         <iframe width="560" height="315"
           src="https://www.youtube.com/embed/JxS5E-kZc2s"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
 
         <audio controls>
-          <source src="C:\Works\University\Semester 3\Script Programming\HTML\Labworks\Lab2\SnapFolio\SnapFolio\assets\media\intheend.mp3" type="audio/mpeg">
+          <source src="C:/Works/University/Semester_3/Script_Programming/HTML/Labworks/Lab2/SnapFolio/SnapFolio/assets/media/intheend.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
-        </audio>
+        </audio>  -->
 
 
     </section><!-- /Services Section -->
@@ -730,7 +717,6 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -739,40 +725,27 @@
           <div class="col-lg-5">
             <div class="info-box">
               <h3>Contact Info</h3>
-              <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
+              <form id="contactForm">
 
-              <div class="info-item">
-                <div class="icon-box">
-                  <i class="bi bi-geo-alt"></i>
-                </div>
-                <div class="content">
-                  <h4>Our Location</h4>
-                  <p>A108 Adam Street</p>
-                  <p>New York, NY 535022</p>
-                </div>
-              </div>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="surname" placeholder="Surname" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone number" required>
+                <input type="text" name="address" placeholder="Address" required>
 
-              <div class="info-item">
-                <div class="icon-box">
-                  <i class="bi bi-telephone"></i>
-                </div>
-                <div class="content">
-                  <h4>Phone Number</h4>
-                  <p>+1 5589 55488 55</p>
-                  <p>+1 6678 254445 41</p>
-                </div>
-              </div>
+                <label for="rating1">Rating 1: <span id="r1Value">5</span></label>
+                <input type="range" id="rating1" name="rating1" min="1" max="10" value="5">
 
-              <div class="info-item">
-                <div class="icon-box">
-                  <i class="bi bi-envelope"></i>
-                </div>
-                <div class="content">
-                  <h4>Email Address</h4>
-                  <p>info@example.com</p>
-                  <p>contact@example.com</p>
-                </div>
-              </div>
+                <label for="rating2">Rating 2: <span id="r2Value">5</span></label>
+                <input type="range" id="rating2" name="rating2" min="1" max="10" value="5">
+
+                <label for="rating3">Rating 3: <span id="r3Value">5</span></label>
+                <input type="range" id="rating3" name="rating3" min="1" max="10" value="5">
+
+                <button type="submit">Submit</button>
+              </form>
+
+              <div id="formResult"></div>
             </div>
           </div>
 
@@ -820,6 +793,31 @@
 
     </section><!-- /Contact Section -->
 
+    <section id="memory-game" class="memory-game-section">
+      <h2>Memory Game</h2>
+
+      <div class="game-controls">
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty">
+          <option value="easy">Easy (4×3)</option>
+          <option value="hard">Hard (6×4)</option>
+        </select>
+
+        <button id="startBtn">Start</button>
+        <button id="restartBtn">Restart</button>
+      </div>
+
+      <div class="stats-panel">
+        <span>Moves: <span id="moves">0</span></span>
+        <span>Matches: <span id="matches">0</span></span>
+      </div>
+
+      <div id="gameBoard" class="game-board"></div>
+
+      <div id="winMessage" class="win-message"></div>
+    </section>
+
+
   </main>
 
   <footer id="footer" class="footer position-relative">
@@ -859,6 +857,8 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/memorygame.js"></script>
 
 </body>
 

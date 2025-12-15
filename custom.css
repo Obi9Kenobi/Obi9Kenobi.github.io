@@ -2,8 +2,28 @@
 h1,
 h2,
 h3{
-  color: var(--heading-color);
+  color: black;
   font-family: var(--heading-font);
+}
+
+.hero .hero-text h1 {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.hero .hero-text h1 .accent-text {
+  color: rgb(153, 8, 8);
+  position: relative;
+}
+
+.hero .hero-text h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 10px;
 }
 
 /* Interactive elements */
@@ -15,47 +35,230 @@ h3{
 }
 
 .hero .hero-actions .btn.btn-primary:hover {
-  background-color: color-mix(in srgb, var(--accent-color), rgb(175, 16, 16) 10%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
+  background-color: color-mix(in srgb, rgb(185, 101, 173), rgb(185, 101, 173) 10%);
+  transform: translateY(-5px);
 }
 
 .hero .hero-actions .btn.btn-outline {
-  background-color: transparent;
+  background-color: rgb(234, 142, 142);
   color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
-.hero .hero-actions .btn.btn-outline:hover {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  transform: translateY(-2px);
+/* Spacing scale & Surfaces */
+
+.about .profile-card {
+  border-radius: 0.2rem;
+  padding: 5px; 
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
 }
 
-.hero .social-links {
+.about .profile-header .profile-image {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 20rem;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  border: 4px solid var(--accent-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 1);
+}
+
+.about .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 5px;
+  background-color: var(--surface-color);
+  border-radius: 0.2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Animations */
+
+.hero-visual {
+  opacity: 0;
+  animation: heroFadeLeft 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.profile-image {
+  animation: imageFloat 3s ease-in-out infinite;
+}
+
+@keyframes heroFadeLeft {
+  from {
+    opacity: 1;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes imageFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  animation: pageReveal 1.2s ease forwards;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255,255,255,.2);
+  border-top-color: rgb(24, 24, 24);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: spin 1s linear infinite, hideLoader 1.2s forwards;
+  z-index: 10000;
+}
+
+@keyframes hideLoader {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Contact Form */
+
+#contactForm {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#contactForm input,
+#contactForm button {
+  padding: 10px;
+  font-size: 14px;
+}
+
+#formResult {
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #be2424;  
+}
+
+/* Success Popup */
+
+.success-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: fadeInOut 3s ease forwards;
+}
+
+/* Memory Game */
+.memory-game-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.game-controls {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.stats-panel {
+  margin-bottom: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
   gap: 20px;
 }
 
-.hero .social-links a {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
+.game-board {
+  display: grid;
   justify-content: center;
-  background-color: var(--surface-color);
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  border-radius: 50%;
-  font-size: 20px;
-  transition: all 0.3s ease;
+  gap: 15px;
 }
 
-.hero .social-links a:hover {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
+.card {
+  width: 80px;
+  height: 80px;
+  perspective: 1000px;
 }
 
-/* Spacing scale & Surfaces */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transform: rotateY(0);
+}
 
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.card-front {
+  background: #6c63ff;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  background: #8d8d8d;
+  transform: rotateY(0deg);
+}
+
+.win-message {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: green;
+}
